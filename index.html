@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorandum of Understanding Rishikul and Meishu High Schools</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Noto Sans JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                    colors: {
+                        skyPrimary: '#0284c7',
+                        skyLight: '#e0f2fe',
+                        emeraldAccent: '#059669',
+                        darkSlate: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .print-shadow { box-shadow: none !important; border: 1px solid #cbd5e1 !important; }
+        }
+        .tab-active {
+            border-bottom: 3px solid #0284c7;
+            color: #0369a1;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-sky-50/40 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="bg-sky-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white text-sky-900 p-2.5 rounded-xl shadow-inner font-bold flex items-center space-x-2">
+                    <i class="fa-solid fa-handshake text-sky-600 text-xl"></i>
+                    <span class="tracking-tight text-base sm:text-lg">MGHS & RVP</span>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm sm:text-base tracking-wide" data-en="Memorandum of Understanding Rishikul and Meishu High Schools" data-ja="リシクル・メイシュ高校間 覚書ポータル">Memorandum of Understanding Rishikul and Meishu High Schools</h1>
+                    <p class="text-xs text-sky-200" data-en="Bilateral Educational Exchange Reference" data-ja="二国間教育交流リファレンス">Bilateral Educational Exchange Reference</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- Language Switcher Button -->
+                <button onclick="toggleLanguage()" class="no-print bg-sky-800 hover:bg-sky-700 text-sky-100 px-3 py-2 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 shadow-sm border border-sky-700">
+                    <i class="fa-solid fa-language text-sky-300"></i>
+                    <span id="lang-btn-text">日本語 / English</span>
+                </button>
+                <!-- PDF Save / Print Button -->
+                <button onclick="savePDF()" class="no-print bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 shadow">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span data-en="PDF保存・印刷" data-ja="PDF保存・印刷">PDF保存・印刷</span>
+                </button>
+                <button onclick="openChecklistModal()" class="no-print bg-amber-600 hover:bg-amber-700 text-white px-3.5 py-2 rounded-lg text-xs font-semibold transition hidden sm:flex items-center space-x-1.5 shadow">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span data-en="Exchange Planner" data-ja="交流プランナー">Exchange Planner</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+        
+        <!-- Hero Banner / School Intro -->
+        <div class="bg-gradient-to-r from-sky-900 via-sky-800 to-sky-950 rounded-2xl shadow-xl text-white p-6 sm:p-8 mb-8 relative overflow-hidden">
+            <div class="absolute right-0 top-0 bottom-0 opacity-10 flex items-center pr-8 pointer-events-none">
+                <i class="fa-solid fa-globe text-9xl"></i>
+            </div>
+            <div class="relative z-10 max-w-3xl">
+                <span class="inline-block bg-sky-700/80 text-sky-200 text-xs px-3 py-1 rounded-full font-medium mb-3 uppercase tracking-wider" data-en="Official Memorandum of Understanding (2023-24)" data-ja="公式覚書 (2023-24)">Official Memorandum of Understanding (2023-24)</span>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3" data-en="Japan-India Cross-Cultural Educational Partnership" data-ja="日本・インド異文化間教育パートナーシップ">Japan-India Cross-Cultural Educational Partnership</h2>
+                <p class="text-sky-200 text-sm sm:text-base leading-relaxed mb-6" data-en="Interactive bilingual referencing portal for faculty, coordinators, and administrators codifying sister-school agreements between Meishu Gakuen High School (Hitachi, Japan) and Rishikul Vidyapeeth (Haryana, India)." data-ja="メイシュ学園高等学校（日本・日立）とリシクル・ヴィディヤピート（インド・ハリヤナ）間の姉妹校協定をまとめた、教職員・コーディネーター・管理者向けの双方向バイリンガル・リファレンス・ポータル。">
+                    Interactive bilingual referencing portal for faculty, coordinators, and administrators codifying sister-school agreements between Meishu Gakuen High School (Hitachi, Japan) and Rishikul Vidyapeeth (Haryana, India).
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-medium">
+                    <div class="bg-sky-950/60 px-3 py-2 rounded-lg border border-sky-700/50 flex items-center space-x-2">
+                        <i class="fa-solid fa-calendar text-amber-400"></i>
+                        <span data-en="Signed: October 25, 2023" data-ja="署名日: 2023年10月25日">Signed: October 25, 2023</span>
+                    </div>
+                    <div class="bg-sky-950/60 px-3 py-2 rounded-lg border border-sky-700/50 flex items-center space-x-2">
+                        <i class="fa-solid fa-user-group text-emerald-300"></i>
+                        <span data-en="Delegation Quota: 6 Students + 2 Staff" data-ja="派遣枠: 生徒6名 ＋ 引率教職員2名">Delegation Quota: 6 Students + 2 Staff</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex border-b border-slate-200 mb-8 overflow-x-auto no-scrollbar">
+            <button onclick="switchTab('overview')" id="btn-overview" class="tab-active px-6 py-3 text-sm font-semibold whitespace-nowrap transition flex items-center space-x-2">
+                <i class="fa-solid fa-book-open"></i>
+                <span data-en="MOU Full Text & Clauses" data-ja="覚書 条文・全文">MOU Full Text & Clauses</span>
+            </button>
+            <button onclick="switchTab('keyterms')" id="btn-keyterms" class="px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-900 whitespace-nowrap transition flex items-center space-x-2">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span data-en="Quick-Reference Matrix" data-ja="クイックリファレンス表">Quick-Reference Matrix</span>
+            </button>
+            <button onclick="switchTab('coordinator')" id="btn-coordinator" class="px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-900 whitespace-nowrap transition flex items-center space-x-2">
+                <i class="fa-solid fa-address-book"></i>
+                <span data-en="Coordinators & Signatories" data-ja="コーディネーター・署名者">Coordinators & Signatories</span>
+            </button>
+            <button onclick="switchTab('faq')" id="btn-faq" class="px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-900 whitespace-nowrap transition flex items-center space-x-2">
+                <i class="fa-solid fa-circle-question"></i>
+                <span data-en="Teacher FAQ & Notes" data-ja="教員向けFAQ・注意事項">Teacher FAQ & Notes</span>
+            </button>
+        </div>
+
+        <div id="tab-overview" class="space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main MOU Text Content (2 cols) -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 print-shadow">
+                        <div class="border-b border-slate-100 pb-4 mb-6 flex items-center justify-between">
+                            <h3 class="text-xl font-bold text-slate-900 flex items-center space-x-2">
+                                <i class="fa-solid fa-file-contract text-sky-600"></i>
+                                <span data-en="Memorandum of Understanding Transcript" data-ja="覚書（スクリプト・全文）">Memorandum of Understanding Transcript</span>
+                            </h3>
+                            <span class="text-xs bg-sky-50 text-sky-700 px-2.5 py-1 rounded font-medium" data-en="Verbatim Archive" data-ja="公式アーカイブ">Verbatim Archive</span>
+                        </div>
+
+                        <div class="space-y-6 text-slate-700 text-sm leading-relaxed">
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-slate-900 mb-1 uppercase text-xs tracking-wider text-sky-900" data-en="Preamble & Overview" data-ja="前文・概要">Preamble & Overview</h4>
+                                <p data-en="Considering the encouragement and development of cooperative exchange in educational areas of mutual interest as desirable, each party wishes to expand the basis for friendship through educational exchanges between Japan and India. Therefore, Meishu Gakuen High School, Hitachi (MGHS) and Rishikul Vidyapeeth Haryana, India (RVP) set forth the understanding and desires in this Memorandum Of Understanding (hereafter MOU) with a view to continuing cooperation in educational exchanges." data-ja="相互の関心のある教育分野における協力交流の奨励および発展が望ましいと考え、各当事者は日本とインドの間での教育交流を通じた友好の基盤を拡大することを希望する。したがって、日本のメイシュ学園高等学校（MGHS）とインドのリシクル・ヴィディヤピート（RVP）は、教育交流における協力を継続する観点から、この覚書（以下「MOU」）に理解と希望を定める。">
+                                    Considering the encouragement and development of cooperative exchange in educational areas of mutual interest as desirable, each party wishes to expand the basis for friendship through educational exchanges between Japan and India. Therefore, Meishu Gakuen High School, Hitachi (MGHS) and Rishikul Vidyapeeth Haryana, India (RVP) set forth the understanding and desires in this Memorandum Of Understanding (hereafter MOU) with a view to continuing cooperation in educational exchanges.
+                                </p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                                    <span class="w-7 h-7 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold">1</span>
+                                    <span data-en="Purpose of Exchange" data-ja="1. 交流の目的">Purpose of Exchange</span>
+                                </h4>
+                                <ul class="list-disc pl-11 space-y-2 text-slate-600">
+                                    <li data-en="Both parties agree to encourage their respective school bodies to cooperate in running joint school cross-cultural courses (exchange programs)." data-ja="両当事者は、それぞれの学校組織が協力して共同の学校間異文化交流コース（交換プログラム）運営を奨励することに合意する。">Both parties agree to encourage their respective school bodies to cooperate in running joint school cross-cultural courses (exchange programs).</li>
+                                    <li data-en="Both parties agree to encourage the establishment of sister-school links between MGHS and RVP with limited flexibility of students and staff participating (see Section 2.0 Exchanges)." data-ja="両当事者は、参加する生徒および職員の一定の柔軟性を持ちながら、MGHSとRVPの間に姉妹校のつながりを構築することを奨励することに合意する（セクション2.0交流を参照）。">Both parties agree to encourage the establishment of sister-school links between MGHS and RVP with limited flexibility of students and staff participating (see Section 2.0 Exchanges).</li>
+                                    <li data-en="Both parties are willing to further strengthen cooperation in education, and extend cooperation across all fields of education, when and as desirable." data-ja="両当事者は、必要かつ望ましい時期において、教育における協力をさらに強化し、教育のあらゆる分野に協力を拡大する用意がある。">Both parties are willing to further strengthen cooperation in education, and extend cooperation across all fields of education, when and as desirable.</li>
+                                </ul>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                                    <span class="w-7 h-7 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold">2</span>
+                                    <span data-en="Exchanges, Duration & Costs" data-ja="2. 交流、期間および費用">Exchanges, Duration & Costs</span>
+                                </h4>
+                                <div class="pl-11 space-y-3 text-slate-600">
+                                    <p><strong class="text-slate-800" data-en="Delegation Quotas:" data-ja="派遣枠:">Delegation Quotas:</strong> <span data-en="Both parties agree to provide opportunities for up to 6 students and up to 2 staff members to visit the sister school based on mutual arrangements." data-ja="両当事者は、相互の取り決めに基づき、最大6名の生徒および最大2名の教職員が姉妹校を訪問する機会を提供することに合意する。">Both parties agree to provide opportunities for up to <strong>6 students</strong> and up to <strong>2 staff members</strong> to visit the sister school based on mutual arrangements.</span></p>
+                                    <p><strong class="text-slate-800" data-en="Duration:" data-ja="期間:">Duration:</strong> <span data-en="To enhance mutual understanding and communication, each party will welcome one visit of approximately 10 days by delegations from the other party per annum throughout the period of the agreement." data-ja="相互の理解とコミュニケーションを高めるため、各当事者は協定期間中、相手方からの代表団による約10日間の訪問を年1回受け入れる。">To enhance mutual understanding and communication, each party will welcome one visit of approximately <strong>10 days</strong> by delegations from the other party per annum throughout the period of the agreement.</span></p>
+                                    <p><strong class="text-slate-800" data-en="Costs & Accommodations:" data-ja="費用と宿泊施設:">Costs & Accommodations:</strong></p>
+                                    <ul class="list-disc pl-6 space-y-1">
+                                        <li data-en="Visiting party pays costs of travelling and insurance for the duration of the visit." data-ja="訪問側は、訪問期間中の渡航費用および保険料を負担する。">Visiting party pays costs of travelling and insurance for the duration of the visit.</li>
+                                        <li data-en="Hosting party pays the cost of accommodation, sustenance, local transportation, and other local hospitalities." data-ja="受入側は、宿泊費、食費、現地交通費、その他現地の歓待にかかる費用を負担する。">Hosting party pays the cost of accommodation, sustenance, local transportation, and other local hospitalities.</li>
+                                        <li data-en="Special (non-pre-planned) activities desired by the visiting party may be co-funded upon discussion." data-ja="訪問側が希望する特別な（事前に計画されていない）活動については、協議の上、共同で資金提供することが可能である。">Special (non-pre-planned) activities desired by the visiting party may be co-funded upon discussion.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                                    <span class="w-7 h-7 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold">3</span>
+                                    <span data-en="Coordinators" data-ja="3. コーディネーター">Coordinators</span>
+                                </h4>
+                                <p class="pl-11 text-slate-600" data-en="In order to fulfill the goals of the MOU, coordinators for both MGHS and RVP are nominated to oversee development and management of joint exchange activities: David O' Donoghue (MGHS) and Archana Sharma (RVP)." data-ja="MOUの目的を達成するため、MGHSおよびRVPの両校のコーディネーターが共同交流活動の開発と管理を監督するために指名されている：デビッド・オドノヒュー（MGHS）およびアルチャナ・シャルマ（RVP）。">
+                                    In order to fulfill the goals of the MOU, coordinators for both MGHS and RVP are nominated to oversee development and management of joint exchange activities: <strong>David O' Donoghue</strong> (MGHS) and <strong>Archana Sharma</strong> (RVP).
+                                </p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                                    <span class="w-7 h-7 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold">4</span>
+                                    <span data-en="Basis for Cooperation" data-ja="4. 協力の基盤">Basis for Cooperation</span>
+                                </h4>
+                                <ul class="list-disc pl-11 space-y-2 text-slate-600">
+                                    <li data-en="Visiting parties will respect the cultural background of the hosting party when activities are proposed/planned." data-ja="訪問側は、活動の提案・計画時に受入側の文化的背景を尊重する。">Visiting parties will respect the cultural background of the hosting party when activities are proposed/planned.</li>
+                                    <li data-en="Hosting party shall be cognisant of the visiting party's cultural background and work to accommodate student needs for meaningful international exchange." data-ja="受入側は、訪問側の文化的背景を認識し、有意義な国際交流のための生徒のニーズに対応するよう努める。">Hosting party shall be cognisant of the visiting party's cultural background and work to accommodate student needs for meaningful international exchange.</li>
+                                    <li data-en="Discussions will be conducted openly and frankly for mutually beneficial outcomes at all times." data-ja="協議は、常に双方にとって有益な成果を目指して、オープンかつ率直に行われる。">Discussions will be conducted openly and frankly for mutually beneficial outcomes at all times.</li>
+                                    <li data-en="Objectives lead to cooperative sister school relationships." data-ja="諸目的は、協力的な姉妹校関係へとつながる。">Objectives lead to cooperative sister school relationships.</li>
+                                </ul>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                                    <span class="w-7 h-7 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold">5</span>
+                                    <span data-en="Activation & Signatories" data-ja="5. 発効と署名者">Activation & Signatories</span>
+                                </h4>
+                                <p class="pl-11 text-slate-600" data-en="This MOU comes into effect on the date of its signature (25th October 2023) and will be evaluated on an ongoing basis for necessary revisions or amendments." data-ja="本覚書は、両当事者による署名日（2023年10月25日）に発効し、必要な改訂や修正に向けて継続的に評価される。">
+                                    This MOU comes into effect on the date of its signature (<strong>25th October 2023</strong>) and will be evaluated on an ongoing basis for necessary revisions or amendments.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Summary & Quick Links (1 col) -->
+                <div class="space-y-6">
+                    <!-- School Profiles Card -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                        <h4 class="font-bold text-slate-900 mb-4 flex items-center space-x-2">
+                            <i class="fa-solid fa-school text-sky-600"></i>
+                            <span data-en="Partner Institutions" data-ja="パートナー校">Partner Institutions</span>
+                        </h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="p-3 bg-sky-50/60 rounded-xl border border-sky-100">
+                                <div class="flex items-center space-x-2 font-bold text-sky-900 mb-1">
+                                    <span class="text-lg">🇯🇵</span>
+                                    <span data-en="Meishu Gakuen Hitachi High School" data-ja="メイシュ学園高等学校">Meishu Gakuen Hitachi High School</span>
+                                </div>
+                                <p class="text-slate-600 text-xs" data-en="Hitachi, Ibaraki Prefecture, Japan" data-ja="日本 茨城県日立市">Hitachi, Ibaraki Prefecture, Japan</p>
+                                <div class="mt-2 text-xs text-sky-700 font-medium" data-en="Coordinator: David O' Donoghue" data-ja="コーディネーター: デビッド・オドノヒュー">Coordinator: David O' Donoghue</div>
+                            </div>
+                            <div class="p-3 bg-emerald-50/60 rounded-xl border border-emerald-100">
+                                <div class="flex items-center space-x-2 font-bold text-emerald-900 mb-1">
+                                    <span class="text-lg">🇮🇳</span>
+                                    <span data-en="Rishikul Vidyapeeth Haryana" data-ja="リシクル・ヴィディヤピート・ハリヤナ">Rishikul Vidyapeeth Haryana</span>
+                                </div>
+                                <p class="text-slate-600 text-xs" data-en="Haryana, India" data-ja="インド ハリヤナ州">Haryana, India</p>
+                                <div class="mt-2 text-xs text-emerald-700 font-medium" data-en="Coordinator: Archana Sharma" data-ja="コーディネーター: アルチャナ・シャルマ">Coordinator: Archana Sharma</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teacher Reference Action Box -->
+                    <div class="bg-gradient-to-br from-sky-900 to-sky-950 rounded-2xl shadow-sm text-white p-6">
+                        <h4 class="font-bold text-base mb-2 flex items-center space-x-2">
+                            <i class="fa-solid fa-lightbulb text-amber-400"></i>
+                            <span data-en="Teacher Guidance Note" data-ja="教員向けガイダンス">Teacher Guidance Note</span>
+                        </h4>
+                        <p class="text-xs text-sky-200 leading-relaxed mb-4" data-en="Future teachers reviewing this document should note the strict delegation ceiling (6 students, 2 staff) and the clear demarcation of travel vs. local hosting costs." data-ja="この文書を確認する将来の教職員は、派遣人数の上限（生徒6名、職員2名）および渡航費と現地受入費用の明確な区分に留意してください。">
+                            Future teachers reviewing this document should note the strict delegation ceiling (6 students, 2 staff) and the clear demarcation of travel vs. local hosting costs.
+                        </p>
+                        <button onclick="openChecklistModal()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-xl font-semibold text-xs transition shadow flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span data-en="Open Planning Checklist" data-ja="計画チェックリストを開く">Open Planning Checklist</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-keyterms" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center space-x-2">
+                        <i class="fa-solid fa-table-cells text-sky-600"></i>
+                        <span data-en="MOU Quick-Reference Matrix for Faculty" data-ja="教職員向け MOUクイックリファレンス表">MOU Quick-Reference Matrix for Faculty</span>
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-1" data-en="Key parameters, financial responsibilities, and operational protocols at a glance." data-ja="主要パラメータ、財政的責任、運用のプロトコルを一目で確認。">Key parameters, financial responsibilities, and operational protocols at a glance.</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-600 border-collapse">
+                        <thead class="bg-slate-100 text-slate-700 uppercase text-xs tracking-wider">
+                            <tr>
+                                <th class="p-3.5 rounded-l-xl" data-en="Parameter" data-ja="項目">Parameter</th>
+                                <th class="p-3.5" data-en="MOU Provision / Specification" data-ja="MOUの規定・仕様">MOU Provision / Specification</th>
+                                <th class="p-3.5 rounded-r-xl" data-en="Teacher Notes / Best Practice" data-ja="教員向けノート・ベストプラクティス">Teacher Notes / Best Practice</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold text-slate-900 flex items-center space-x-2">
+                                    <i class="fa-solid fa-user-group text-sky-600"></i>
+                                    <span data-en="Delegation Limit" data-ja="派遣人数上限">Delegation Limit</span>
+                                </td>
+                                <td class="p-3.5" data-en="Up to 6 students and up to 2 staff members per visit." data-ja="1回の訪問につき生徒最大6名、教職員最大2名。">Up to 6 students and up to 2 staff members per visit.</td>
+                                <td class="p-3.5 text-slate-500" data-en="Strict cap; selection criteria should be transparently established by each school annually." data-ja="厳格な上限。選考基準は毎年各校で透明性を持って策定すること。">Strict cap; selection criteria should be transparently established by each school annually.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold text-slate-900 flex items-center space-x-2">
+                                    <i class="fa-solid fa-clock text-sky-600"></i>
+                                    <span data-en="Visit Duration" data-ja="訪問期間">Visit Duration</span>
+                                </td>
+                                <td class="p-3.5" data-en="Approximately 10 days per annum per delegation." data-ja="各代表団につき年約10日間。">Approximately 10 days per annum per delegation.</td>
+                                <td class="p-3.5 text-slate-500" data-en="Plan academic catch-up classes for participating students prior to departure." data-ja="出発前に参加生徒のための補習授業を計画すること。">Plan academic catch-up classes for participating students prior to departure.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold text-slate-900 flex items-center space-x-2">
+                                    <i class="fa-solid fa-plane text-sky-600"></i>
+                                    <span data-en="Travel & Insurance" data-ja="渡航・保険">Travel & Insurance</span>
+                                </td>
+                                <td class="p-3.5" data-en="Visiting party pays international travel costs and comprehensive insurance." data-ja="訪問側が国際渡航費用および包括的保険料を負担する。">Visiting party pays international travel costs and comprehensive insurance.</td>
+                                <td class="p-3.5 text-slate-500" data-en="Ensure all student visas and travel insurance policies are secured 6 weeks prior." data-ja="生徒のビザおよび旅行保険は出発の6週間前までに確実に取得すること。">Ensure all student visas and travel insurance policies are secured 6 weeks prior.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold text-slate-900 flex items-center space-x-2">
+                                    <i class="fa-solid fa-house-chimney text-sky-600"></i>
+                                    <span data-en="Accommodation & Sustenance" data-ja="宿泊・食費">Accommodation & Sustenance</span>
+                                </td>
+                                <td class="p-3.5" data-en="Hosting party covers lodging, food, local transport, and hospitalities." data-ja="受入側が宿泊、食事、現地交通費、歓待費用を負担する。">Hosting party covers lodging, food, local transport, and hospitalities.</td>
+                                <td class="p-3.5 text-slate-500" data-en="Coordinate host family matches or campus dormitory arrangements in advance." data-ja="ホストファミリーのマッチングやキャンパス寮の手配を事前に調整すること。">Coordinate host family matches or campus dormitory arrangements in advance.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-coordinator" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center space-x-2">
+                        <i class="fa-solid fa-signature text-sky-600"></i>
+                        <span data-en="Designated Coordinators & Signatories" data-ja="指定コーディネーターおよび署名者">Designated Coordinators & Signatories</span>
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-1" data-en="Official representatives responsible for initiating, discussing, and managing joint exchange activities." data-ja="共同交流活動の開始、協議、管理を担当する公式代表者。">Official representatives responsible for initiating, discussing, and managing joint exchange activities.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- MGHS Coordinator Card -->
+                    <div class="bg-sky-50/50 rounded-2xl p-6 border border-sky-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-sky-600 text-white text-xs px-3 py-1 rounded-full font-medium" data-en="Japan Institution" data-ja="日本の機関">Japan Institution</span>
+                                <span class="text-2xl">🇯🇵</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-sky-900 mb-1" data-en="Meishu Gakuen High School" data-ja="メイシュ学園高等学校">Meishu Gakuen High School</h4>
+                            <p class="text-slate-600 text-xs mb-4" data-en="Hitachi, Ibaraki, Japan" data-ja="日本・茨城県日立市">Hitachi, Ibaraki, Japan</p>
+                            
+                            <div class="space-y-3 pt-4 border-t border-sky-100 text-sm">
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <i class="fa-solid fa-user-tie text-sky-600 w-5"></i>
+                                    <div>
+                                        <div class="text-xs text-slate-500" data-en="Coordinator & Signatory" data-ja="コーディネーター・署名者">Coordinator & Signatory</div>
+                                        <div class="font-bold text-slate-900">David O' Donoghue</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <i class="fa-solid fa-calendar-check text-sky-600 w-5"></i>
+                                    <div>
+                                        <div class="text-xs text-slate-500" data-en="Signature Date" data-ja="署名日">Signature Date</div>
+                                        <div class="font-semibold text-slate-800" data-en="25th October 2023" data-ja="2023年10月25日">25th October 2023</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-sky-100 text-xs text-sky-700 font-medium flex items-center space-x-1">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span data-en="Active Supervisory Role" data-ja="監督責任・活動中">Active Supervisory Role</span>
+                        </div>
+                    </div>
+
+                    <!-- RVP Coordinator Card -->
+                    <div class="bg-emerald-50/50 rounded-2xl p-6 border border-emerald-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-emerald-600 text-white text-xs px-3 py-1 rounded-full font-medium" data-en="India Institution" data-ja="インドの機関">India Institution</span>
+                                <span class="text-2xl">🇮🇳</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-emerald-900 mb-1" data-en="Rishikul Vidyapeeth Haryana" data-ja="リシクル・ヴィディヤピート・ハリヤナ">Rishikul Vidyapeeth Haryana</h4>
+                            <p class="text-slate-600 text-xs mb-4" data-en="Haryana, India" data-ja="インド・ハリヤナ州">Haryana, India</p>
+                            
+                            <div class="space-y-3 pt-4 border-t border-emerald-100 text-sm">
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <i class="fa-solid fa-user-tie text-emerald-600 w-5"></i>
+                                    <div>
+                                        <div class="text-xs text-slate-500" data-en="Coordinator & Signatory" data-ja="コーディネーター・署名者">Coordinator & Signatory</div>
+                                        <div class="font-bold text-slate-900">Archana Sharma</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <i class="fa-solid fa-calendar-check text-emerald-600 w-5"></i>
+                                    <div>
+                                        <div class="text-xs text-slate-500" data-en="Signature Date" data-ja="署名日">Signature Date</div>
+                                        <div class="font-semibold text-slate-800" data-en="25th October 2023" data-ja="2023年10月25日">25th October 2023</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-emerald-100 text-xs text-emerald-700 font-medium flex items-center space-x-1">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span data-en="Active Supervisory Role" data-ja="監督責任・活動中">Active Supervisory Role</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-faq" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-question text-sky-600"></i>
+                        <span data-en="Frequently Asked Questions for Future Teachers" data-ja="教職員向けよくある質問 (FAQ)">Frequently Asked Questions for Future Teachers</span>
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-1" data-en="Contextual guidance and operational tips when running exchanges under this MOU." data-ja="本覚書に基づく交流運営に関する文脈に応じたガイダンスとヒント。">Contextual guidance and operational tips when running exchanges under this MOU.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="border border-slate-200 rounded-xl p-4 sm:p-5 hover:border-sky-300 transition">
+                        <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center space-x-2">
+                            <i class="fa-solid fa-q text-sky-600 bg-sky-50 p-1.5 rounded"></i>
+                            <span data-en="Can we increase the delegation size beyond 6 students if funding allows?" data-ja="予算が許せば、派遣人数を生徒6名以上に増やすことはできますか？">Can we increase the delegation size beyond 6 students if funding allows?</span>
+                        </h4>
+                        <p class="text-slate-600 text-sm pl-8" data-en="The MOU specifies 'up to 6 students and up to 2 staff members'. While flexibility is encouraged, any expansion beyond these limits requires formal consultation and mutual agreement between coordinators David O' Donoghue and Archana Sharma." data-ja="本覚書には「最大6名の生徒および最大2名の教職員」と明記されています。柔軟性は推奨されますが、この上限を超える拡張には、コーディネーター間での正式な協議と相互合意が必要です。">
+                            The MOU specifies "up to 6 students and up to 2 staff members". While flexibility is encouraged, any expansion beyond these limits requires formal consultation and mutual agreement between coordinators David O' Donoghue and Archana Sharma.
+                        </p>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl p-4 sm:p-5 hover:border-sky-300 transition">
+                        <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center space-x-2">
+                            <i class="fa-solid fa-q text-sky-600 bg-sky-50 p-1.5 rounded"></i>
+                            <span data-en="Who is responsible for student medical insurance during the exchange?" data-ja="交流期間中の生徒の医療保険は誰が責任を持ちますか？">Who is responsible for student medical insurance during the exchange?</span>
+                        </h4>
+                        <p class="text-slate-600 text-sm pl-8" data-en="Per Section 2 (Costs and Accommodations), the visiting party is explicitly responsible for paying the costs of travelling and comprehensive insurance for the duration of the visit." data-ja="第2条（費用と宿泊施設）に基づき、訪問側が訪問期間中の渡航費用および包括的保険料の支払いに明確な責任を負います。">
+                            Per Section 2 (Costs and Accommodations), the visiting party is explicitly responsible for paying the costs of travelling and comprehensive insurance for the duration of the visit.
+                        </p>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl p-4 sm:p-5 hover:border-sky-300 transition">
+                        <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center space-x-2">
+                            <i class="fa-solid fa-q text-sky-600 bg-sky-50 p-1.5 rounded"></i>
+                            <span data-en="What cultural considerations are emphasized in the agreement?" data-ja="協定ではどのような文化的配慮が強調されていますか？">What cultural considerations are emphasized in the agreement?</span>
+                        </h4>
+                        <p class="text-slate-600 text-sm pl-8" data-en="Section 4 (Basis for Cooperation) mandates that visiting parties respect the cultural background of the hosting party, and hosting parties must be cognisant of visiting student needs." data-ja="第4条（協力の基盤）では、訪問側は受入側の文化的背景を尊重し、受入側は訪問側生徒のニーズを十分に認識することが義務付けられています。">
+                            Section 4 (Basis for Cooperation) mandates that visiting parties respect the cultural background of the hosting party, and hosting parties must be cognisant of visiting student needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="checklistModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            <!-- Modal Header -->
+            <div class="bg-sky-900 text-white p-5 flex items-center justify-between">
+                <div class="flex items-center space-x-2.5">
+                    <i class="fa-solid fa-list-check text-amber-400 text-lg"></i>
+                    <h3 class="font-bold text-lg" data-en="Interactive Exchange Planning Checklist" data-ja="インタラクティブ交流計画チェックリスト">Interactive Exchange Planning Checklist</h3>
+                </div>
+                <button onclick="closeChecklistModal()" class="text-sky-200 hover:text-white p-1.5 rounded-lg hover:bg-sky-800 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body (Checklist items) -->
+            <div class="p-6 overflow-y-auto space-y-4 flex-grow">
+                <p class="text-xs text-slate-500 mb-2" data-en="Track your preparation milestones for hosting or sending delegates under the Meishu-Rishikul MOU." data-ja="メイシュ・リシクル覚書に基づく代表団の受け入れ・派遣に向けた準備マイルストーンを追跡します。">Track your preparation milestones for hosting or sending delegates under the Meishu-Rishikul MOU.</p>
+                
+                <div class="space-y-3">
+                    <label class="flex items-start space-x-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-sky-600 rounded border-slate-300 focus:ring-sky-500">
+                        <span class="text-sm text-slate-700" data-en="1. Quota Confirmation: Select up to 6 students and 2 staff members in consultation with coordinators." data-ja="1. 派遣枠の確認: コーディネーターと協議の上、生徒最大6名・職員2名を選定する。"><strong>1. Quota Confirmation:</strong> Select up to 6 students and 2 staff members in consultation with coordinators.</span>
+                    </label>
+
+                    <label class="flex items-start space-x-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-sky-600 rounded border-slate-300 focus:ring-sky-500">
+                        <span class="text-sm text-slate-700" data-en="2. Travel & Insurance: Book round-trip flights and secure comprehensive international medical insurance." data-ja="2. 渡航・保険: 往復航空券の予約および包括的な国際医療保険の手配。"><strong>2. Travel & Insurance:</strong> Book round-trip flights and secure comprehensive international medical insurance.</span>
+                    </label>
+
+                    <label class="flex items-start space-x-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-sky-600 rounded border-slate-300 focus:ring-sky-500">
+                        <span class="text-sm text-slate-700" data-en="3. Hosting Logistics: Confirm host family lodging, dietary requirements, and local transportation." data-ja="3. 受け入れロジスティクス: ホストファミリーの宿泊、食事の要件、現地交通機関の確認。"><strong>3. Hosting Logistics:</strong> Confirm host family lodging, dietary requirements, and local transportation.</span>
+                    </label>
+
+                    <label class="flex items-start space-x-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-sky-600 rounded border-slate-300 focus:ring-sky-500">
+                        <span class="text-sm text-slate-700" data-en="4. Cultural Briefing: Conduct pre-departure cross-cultural workshops respecting Japanese/Indian customs." data-ja="4. 文化オリエンテーション: 日本とインドの慣習を尊重した出発前異文化ワークショップの実施。"><strong>4. Cultural Briefing:</strong> Conduct pre-departure cross-cultural workshops respecting Japanese/Indian customs.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-slate-50 p-4 border-t border-slate-200 flex justify-end space-x-3">
+                <button onclick="closeChecklistModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded-xl text-xs font-semibold transition" data-en="Close Planner" data-ja="プランナーを閉じる">
+                    Close Planner
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-graduation-cap text-sky-400"></i>
+                <span data-en="Meishu Gakuen Hitachi High School & Rishikul Vidyapeeth Reference Portal" data-ja="メイシュ学園高等学校 ＆ リシクル・ヴィディヤピート 参照ポータル">Meishu Gakuen Hitachi High School & Rishikul Vidyapeeth Reference Portal</span>
+            </div>
+            <div>
+                <span data-en="Signed October 25, 2023 | Bilateral Exchange Agreement" data-ja="署名日: 2023年10月25日 | 二国間交流協定">Signed October 25, 2023 | Bilateral Exchange Agreement</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function switchTab(tabId) {
+            document.getElementById('tab-overview').classList.add('hidden');
+            document.getElementById('tab-keyterms').classList.add('hidden');
+            document.getElementById('tab-coordinator').classList.add('hidden');
+            document.getElementById('tab-faq').classList.add('hidden');
+
+            document.getElementById('btn-overview').className = "px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-900 whitespace-nowrap transition flex items-center space-x-2";
+            document.getElementById('btn-keyterms').className = "px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-900 whitespace-nowrap transition flex items-center space-x-2";
+            document.getElementById('btn-coordinator').className = "px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-900 whitespace-nowrap transition flex items-center space-x-2";
+            document.getElementById('btn-faq').className = "px-6 py-3 text-sm font-medium text-slate-600 hover:text-sky-900 whitespace-nowrap transition flex items-center space-x-2";
+
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).className = "tab-active px-6 py-3 text-sm font-semibold whitespace-nowrap transition flex items-center space-x-2";
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ja' : 'en';
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                const text = el.getAttribute('data-' + currentLang);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+            document.getElementById('lang-btn-text').innerText = currentLang === 'en' ? '日本語 / English' : 'English / 日本語';
+        }
+
+        function savePDF() {
+            window.print();
+        }
+
+        function openChecklistModal() {
+            document.getElementById('checklistModal').classList.remove('hidden');
+        }
+
+        function closeChecklistModal() {
+            document.getElementById('checklistModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
